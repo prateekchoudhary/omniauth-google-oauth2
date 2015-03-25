@@ -10,7 +10,7 @@ module OmniAuth
       DEFAULT_SCOPE = "email,profile"
 
       option :name, 'google_oauth2'
-
+      option :domain, nil
       option :skip_friends, true
 
       option :authorize_options, [:access_type, :hd, :login_hint, :prompt, :request_visible_actions, :scope, :state, :redirect_uri, :include_granted_scopes, :openid_realm]
@@ -20,13 +20,17 @@ module OmniAuth
         :authorize_url => '/o/oauth2/auth',
         :token_url     => '/o/oauth2/token'
       }
+      
+      def identifier
+        options[:domain] || request['domain']
+      end
 
       def authorize_params
         super.tap do |params|
           options[:authorize_options].each do |k|
             params[k] = request.params[k.to_s] unless [nil, ''].include?(request.params[k.to_s])
           end
-
+          params[:hd] = identifier
           raw_scope = params[:scope] || DEFAULT_SCOPE
           scope_list = raw_scope.split(" ").map {|item| item.split(",")}.flatten
           scope_list.map! { |s| s =~ /^https?:\/\// || BASE_SCOPES.include?(s) ? s : "#{BASE_SCOPE_URL}#{s}" }
