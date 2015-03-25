@@ -38,7 +38,7 @@ end
 ```
 
 You can now access the OmniAuth Google OAuth2 URL: `/auth/google_oauth2?domain=example.com`
-NOTE: example.com can be any google apps domain, or nil
+NOTE: example.com can be any google apps domain, or leave it blank for default google authentication 
 
 For more examples please check out `examples/omni_auth.rb`
 
