@@ -1,4 +1,4 @@
-# OmniAuth Google OAuth2 Strategy for google apps 
+# OmniAuth Google OAuth2 Strategy for Google Apps 
 
 Strategy to authenticate with Google via OAuth2 in OmniAuth, for multiple google apps acocunt
 
