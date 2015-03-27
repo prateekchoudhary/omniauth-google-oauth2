@@ -1,6 +1,6 @@
-# OmniAuth Google OAuth2 Strategy
+# OmniAuth Google OAuth2 Strategy for google apps 
 
-Strategy to authenticate with Google via OAuth2 in OmniAuth.
+Strategy to authenticate with Google via OAuth2 in OmniAuth, for multiple google apps acocunt
 
 Get your API key at: https://code.google.com/apis/console/  Note the Client ID and the Client Secret.
 
